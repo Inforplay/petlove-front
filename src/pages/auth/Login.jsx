@@ -6,9 +6,9 @@ import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-    const { mutate: logar } = useLogin()
-    const navigate = useNavigate()
-    const { api } = useContext(AuthContext)
+    const { mutate: logar, isPending } = useLogin();
+    const navigate = useNavigate();
+    const { api } = useContext(AuthContext);
 
     function login(dados) {
         logar(dados, {
@@ -54,7 +54,7 @@ const Login = () => {
                 <div className="flex flex-col justify-center items-center gap-6.5">
                     <a href="/recuperar" className="font-bold text-roxo!">Esqueci minha senha</a>
                     <div className="text-center">
-                        <Button shape="round" size="large" className="w-37.5" type="primary" htmlType="submit"> Logar </Button>
+                        <Button loading={isPending} shape="round" size="large" className="w-37.5" type="primary" htmlType="submit"> Logar </Button>
                     </div>
                 </div>
             </Form>

@@ -27,7 +27,6 @@ const Login = () => {
                 })
             }
         })
-        
     }
 
     return (
